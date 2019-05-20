@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>De Fafe Para O Mundo</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+   <style>
+     html, body {
+       font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+       text-align: center;
+     }
+   </style>
+ </head>
+ <body>
+   <div id="app">
+     <el-row>
+       <el-col :span="12" :offset="6">
+         <h1>De Fafe Para O Mundo</h1>
+         <el-row>
+           <el-col :span="12">
+             <h4>{{ quote }}</h4>
+           </el-col>
+           <el-col :span="12">
+             <img src="gil.png" style="margin: 0 auto; max-width:500px;" />
+           </el-col>
+         </el-row>
+         <el-button type="primary" round @click="getRandomQuote()">Teach me more!!!</el-button>
+       </el-col>
+     </el-row>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+   <script type="text/javascript">
+     var app = new Vue({
+       el: '#app',
+       data: {
+         quotes: [
+         '"Oh, mas o racismo é justificado"',
+         '"Isso dos presidentes da junta era limpá-los a todos"',
+         '"Vais na estrada, vês alguém a conduzir mal, já sabes que é uma gaja"'
+         ],
+         quote: ''
+       },
+       created: function () {
+         this.getRandomQuote()
+       },
+       methods: {
+         getRandomQuote: function () {
+           this.quote = this.quotes[Math.floor(Math.random() * this.quotes.length)]
+         }
+       }
+     })
+   </script>
+ </body>
+</html>
